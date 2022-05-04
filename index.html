@@ -20,6 +20,12 @@
     />
     <!-- MDB -->
     <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
       rel="stylesheet"
     />
@@ -27,7 +33,46 @@
   </head>
   <body>
     <!-- Start your project here-->
-    <div class="container-fluid login-screen"></div>
+    <!-- Modal -->
+    <div
+      class="modal top fade"
+      id="myModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      data-mdb-backdrop="static"
+      data-mdb-keyboard="false"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Bienvenido a, Quieres Ser Un tirado???
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-mdb-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Quieres Ganar 0 Euros pero pasartelo muy bien mientras te desvalijan
+            la casa??? este es tu Programa huevon!!
+          </div>
+          <div class="modal-footer text-center">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-mdb-dismiss="modal"
+            >
+              CLICK PARA EMPEZAR
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container my-5">
       <div id="intro">
         <div class="counter">
@@ -36,18 +81,18 @@
         </div>
         <div class="score">
           <p class="prefix">Puntuacion</p>
-          <h2 id="score">3</h2>
+          <h2 id="score">0</h2>
         </div>
       </div>
       <div class="question-holder row">
         <div class="col-12">
-          <h2 id="question">What is is the Answer</h2>
+          <h2 id="question">Aqui la pregunta...</h2>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <div class="answer-container card">
-            <p class="answer-prefix hover-zoom">A</p>
+            <p class="answer-prefix">A</p>
             <p class="answer-text">Respuesta A</p>
           </div>
         </div>
