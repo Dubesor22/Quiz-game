@@ -10,61 +10,101 @@ const questionCounterText = document.querySelector(".counter");
 const scoreText = document.querySelector(".score");
 const startButton = document.querySelector(".start-button");
 
-// let [, { correct_answer }] = questions;
-// console.log(correct_answer);
-
-let questionCounter;
-let score;
+let currentQuestion = {};
+let acceptingAnswers = true;
+let questionCounter = 0;
+let score = 0;
+const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 10;
+let avaliableQuestions = [];
 
+let questions = [];
+
+fetch("https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple")
+  .then((res) => {
+    return res.json();
+  })
+  .then((loadedQuestions) => {
+    console.log(loadedQuestions.results);
+    questions = loadedQuestions.results.map((loadedQuestion) => {
+      const formattedQuestion = {
+        question: loadedQuestion.question,
+      };
+      const answerChoices = [...loadedQuestion.incorrect_answers];
+      formattedQuestion.answers = Math.floor(Math.random() * 3) + 1;
+      answerChoices.splice(
+        formattedQuestion.answers - 1,
+        0,
+        loadedQuestion.correct_answer
+      );
+      answerChoices.forEach((choice, index) => {
+        formattedQuestion["choice" + (index + 1)] = choice;
+      });
+      return formattedQuestion;
+    });
+    // startGame();
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 //Funcion para empezar el Juego
-startGame = (asd) => {
+startGame = () => {
   questionCounter = 0;
   score = 0;
 
-  avaliableQuestions = getRandomQuestions(questions, MAX_QUESTIONS);
+  avaliableQuestions = [...questions];
   console.log(avaliableQuestions);
-  console.log();
   getNewQuestion();
 };
 
-//funcion que randomiza una pregunta del STACK de todas
-const getRandomQuestions = (arr, n) => {
-  console.log(arr);
-  let len = arr.length;
-  if (n > len) {
-    throw new RangeError(
-      "la Funcion: mas elementos cogidos de los disponibles"
-    );
-  }
-  const shuffled = [...arr].sort(() => 0.5 - Math.random());
-  return (selected = shuffled.slice(0, n));
-};
-
 const getNewQuestion = () => {
-  if (avaliableQuestions.length === 0) {
+  if (avaliableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
     alert("FIN DEL JUEGO");
     return;
   }
   questionCounter++;
-  questionCounterText.innerText = `${questionCounter} / 10`;
-  currentQuestion = avaliableQuestions[0];
-
+  questionCounterText.innerText = `${questionCounter} / ${MAX_QUESTIONS}`;
+  const questionIndex = Math.floor(Math.random() * avaliableQuestions.length);
+  currentQuestion = avaliableQuestions[questionIndex];
   question.innerText = currentQuestion.question;
-  // avaliableQuestions.shift();
-  // getNewQuestion();
+  choices.forEach((choice) => {
+    //accede a atributos especiales
+    const number = choice.dataset["number"];
+    choice.innerText = currentQuestion["choice" + number];
+  });
+
+  //usamos splice para sacar la pregunta que hemos usado.
+  avaliableQuestions.splice(questionIndex, 1);
+  acceptingAnswers = true;
 };
 
 startButton.addEventListener("click", startGame);
-const getQuestions = async () => {
-  const questions = await axios
-    .get("https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple")
-    .then((res) => {
-      console.log(res.data.results);
-      const questionsObject = res.data.results;
-      getRandomQuestions(questionsObject);
-      startGame(questionsObject);
-    })
-    .catch((err) => console.error(err));
+
+//funcion que reconoce el click del elmento de cada respuesta
+choices.forEach((choice) => {
+  choice.addEventListener("click", (argument) => {
+    if (!acceptingAnswers) return;
+
+    acceptingAnswers = false;
+    const selectedChoice = argument.target; //value?
+    const selectedAnswer = selectedChoice.dataset["number"];
+    //cambiar a correcto la clase y aplicarla (incorrecto default)
+    const classToAplly = "incorrect";
+    if (selectedAnswer == currentQuestion.answer) {
+      classToAplly = "correct";
+    }
+    if (classToAplly == "correct") {
+      incrementScore(CORRECT_BONUS);
+    }
+    //anyadir y quitar la clase em 2 segundos
+    selectedChoice.parentElement.classList.add(classToAplly);
+    setTimeout(() => {
+      selectedChoice.parentElement.classList.remove(classToAplly);
+      getNewQuestion();
+    }, 2000);
+  });
+});
+incrementScore = (num) => {
+  score += num;
+  scoreText.innerText = score;
 };
-getQuestions();

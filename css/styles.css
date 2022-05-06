@@ -3,9 +3,14 @@
   --secondary: rgb(255, 232, 214);
   --background-primary: rgba(165, 165, 141);
   --background-secondary: rgba(107, 112, 92);
+  font-size: 62.5%;
+}
+* {
+  box-sizing: border-box;
 }
 body,
 h2 {
+  font-size: 2.4rem;
   font-weight: 300;
   background-color: var(--background-secondary);
   color: aliceblue;
@@ -38,7 +43,7 @@ h5 {
 
 .prefix {
   text-align: center;
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
 #counter,
@@ -47,7 +52,7 @@ h5 {
 }
 
 .question-holder {
-  height: 10rem;
+  height: 15rem;
   display: flex;
   text-align: center;
   align-items: center;
@@ -79,4 +84,11 @@ h5 {
   width: 100%;
   margin: 0;
   color: black;
+}
+.correct {
+  background-color: rgb(57, 174, 57);
+}
+
+.incorrect {
+  background-color: rgb(227, 83, 83);
 }
