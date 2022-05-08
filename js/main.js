@@ -5,7 +5,9 @@ $(document).ready(function () {
 //Variable Declaration Y DOM
 
 const questionContainer = document.querySelector("#question");
-const answersContainer = Array.from(document.querySelectorAll(".answer-text"));
+const answersContainer = Array.from(
+  document.querySelectorAll(".answer-container")
+);
 const questionCounterText = document.querySelector("#counter");
 const scoreText = document.querySelector("#score");
 const startButton = document.querySelector(".start-button");
@@ -71,11 +73,11 @@ const removeColors = () => {
 const printQuestion = (q) => {
   removeColors();
   updateScore();
-  questionContainer.innerText = q.question;
+  questionContainer.innerHTML = q.question;
   const answers = [...q.incorrect_answers];
   answers.splice(Math.floor(Math.random() * 4), 0, q.correct_answer);
   answers.forEach((answer, i) => {
-    answersContainer[i].innerText = answer;
+    answersContainer[i].innerHTML = answer;
     answersContainer[i].onclick = () => {
       userAnswers.push(answer);
       answersContainer.forEach(

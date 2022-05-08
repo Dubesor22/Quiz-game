@@ -1,6 +1,6 @@
 :root {
   --primary: #488cff;
-  --secondary: rgb(255, 232, 214);
+  --secondary: rgb(251, 208, 176);
   --background-primary: rgba(165, 165, 141);
   --background-secondary: rgba(107, 112, 92);
   font-size: 62.5%;
@@ -61,20 +61,29 @@ h5 {
 .answer-container {
   display: flex;
   flex-direction: initial;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
+  background-color: var(--secondary);
+  color: white;
+  height: 8rem;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.3rem;
 }
 
 .answer-prefix {
-  background-color: grey;
-  color: white;
-  padding: 1.5rem 2.5rem;
+  padding: 3rem 4rem;
   margin: 0;
+  background-color: #fff;
+  color: black;
+  height: 100%;
 }
 
-.answer-prefix:hover {
+.answer-container:hover {
   cursor: pointer;
-  box-shadow: 9px 7px 30px 11px rgba(35, 27, 30, 0.44);
+  box-shadow: 9px 7px 30px 11px rgba(203, 153, 126, 0.44);
   transform: translate(-0.2rem);
   transition: transform 150ms;
 }
@@ -85,6 +94,26 @@ h5 {
   margin: 0;
   color: black;
 }
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn {
+  width: 35%;
+  height: 5rem;
+  font-size: 1.5rem;
+  background-color: rgb(168, 95, 47) !important;
+
+  font-weight: 600;
+}
+
+.btn:hover {
+  box-shadow: 9px 7px 30px 11px rgba(203, 153, 126, 0.44);
+}
+
 .correct {
   background-color: rgb(57, 174, 57);
 }
