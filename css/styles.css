@@ -1,12 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 :root {
-  --primary: #488cff;
-  --secondary: rgb(251, 208, 176);
-  --background-primary: rgba(165, 165, 141);
-  --background-secondary: rgba(107, 112, 92);
+  --primary: rgb(96, 176, 238);
+  --secondary: 60, 242, 129;
+  --button: 58, 162, 255;
+  --background-primary: rgb(0, 0, 0);
+  --background-secondary: rgb(0, 0, 0);
   font-size: 62.5%;
 }
 * {
   box-sizing: border-box;
+}
+body {
+  background-image: url(/assets/img/fondo.gif.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Press Start 2P", cursive;
 }
 body,
 h2 {
@@ -58,6 +66,10 @@ h5 {
   align-items: center;
 }
 
+#question {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .answer-container {
   display: flex;
   flex-direction: initial;
@@ -65,8 +77,10 @@ h5 {
   align-items: center;
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
-  background-color: var(--secondary);
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
+  border: 5px solid rgb(var(--secondary));
+
   height: 8rem;
   font-size: 2rem;
   font-weight: 600;
@@ -83,7 +97,7 @@ h5 {
 
 .answer-container:hover {
   cursor: pointer;
-  box-shadow: 9px 7px 30px 11px rgba(203, 153, 126, 0.44);
+  box-shadow: 9px 7px 30px 11px rgb(var(--secondary), 0.6);
   transform: translate(-0.2rem);
   transition: transform 150ms;
 }
@@ -105,7 +119,7 @@ h5 {
   width: 35%;
   height: 5rem;
   font-size: 1.5rem;
-  background-color: rgb(168, 95, 47) !important;
+  background-color: rgb(var(--button), 0.6) !important;
 
   font-weight: 600;
 }
@@ -119,5 +133,5 @@ h5 {
 }
 
 .incorrect {
-  background-color: rgb(227, 83, 83);
+  background-color: rgb(233, 55, 55);
 }

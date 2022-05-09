@@ -8,9 +8,11 @@ const questionContainer = document.querySelector("#question");
 const answersContainer = Array.from(
   document.querySelectorAll(".answer-container")
 );
+const answerContainer = document.querySelector(".answer-container");
 const questionCounterText = document.querySelector("#counter");
 const scoreText = document.querySelector("#score");
 const startButton = document.querySelector(".start-button");
+const modalTittle = document.querySelector(".modal-title");
 const modal = document.querySelector(".modal-body");
 const buttonNext = document.querySelector("#btn-next");
 
@@ -83,7 +85,8 @@ const printQuestion = (q) => {
   updateScore();
   questionContainer.innerHTML = q.question;
   const answers = [...q.incorrect_answers];
-  answers.splice(Math.floor(Math.random() * 4), 0, q.correct_answer);
+  const correctId = Math.floor(Math.random() * 4);
+  answers.splice(correctId, 0, q.correct_answer);
   answers.forEach((answer, i) => {
     answersContainer[i].innerHTML = answer;
     answersContainer[i].onclick = () => {
@@ -97,8 +100,10 @@ const printQuestion = (q) => {
       if (isCorrect) {
         answersContainer[i].classList.add("correct");
         return;
+      } else {
+        answersContainer[i].classList.add("incorrect");
       }
-      answersContainer[i].classList.add("incorrect");
+      answersContainer[correctId].classList.add("correct");
     };
   });
 };
@@ -109,7 +114,7 @@ const updateScore = () => {
 };
 
 const showFinalScore = (globalScore) => {
-  console.log(globalScore);
+  modalTittle.innerText = "";
   modal.innerText = `Felicidades tu Puntuacion es ${score}, volver a Jugar?`;
   $("#myModal").modal("show");
   startGame();
