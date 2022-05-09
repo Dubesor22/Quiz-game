@@ -34,7 +34,7 @@ const getQuestions = async () => {
   // }
 
   return fetch(
-    "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple"
+    "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple"
   )
     .then((res) => res.json())
     .then((res) => res.results);
@@ -113,11 +113,139 @@ const updateScore = () => {
   questionCounterText.innerText = userAnswers.length + 1;
 };
 
+const gameBarsChart = (games, id) => {
+  const selectedGame = games.filter((eachGame) => eachGame.game !== null);
+
+  const data = {
+    labels: selectedGame.map((eachGame, index) => index),
+    datasets: [
+      {
+        data: selectedGame,
+        borderColor: [
+          "rgba(116, 72, 194, 1)",
+          "rgba(33, 192, 215, 1)",
+          "rgba(217, 158, 43, 1)",
+          "rgba(205, 58, 129, 1)",
+          "rgba(156, 153, 204, 1)",
+          "rgba(225, 78, 202, 1)",
+          "rgba(116, 72, 194, 1)",
+          "rgba(33, 192, 215, 1)",
+          "rgba(217, 158, 43, 1)",
+          "rgba(205, 58, 129, 1)",
+          "rgba(156, 153, 204, 1)",
+          "rgba(225, 78, 202, 1)",
+          "rgba(116, 72, 194, 1)",
+          "rgba(33, 192, 215, 1)",
+          "rgba(217, 158, 43, 1)",
+          "rgba(205, 58, 129, 1)",
+          "rgba(156, 153, 204, 1)",
+          "rgba(225, 78, 202, 1)",
+          "rgba(116, 72, 194, 1)",
+          "rgba(33, 192, 215, 1)",
+          "rgba(217, 158, 43, 1)",
+          "rgba(205, 58, 129, 1)",
+          "rgba(156, 153, 204, 1)",
+          "rgba(225, 78, 202, 1)",
+          "rgba(116, 72, 194, 1)",
+          "rgba(33, 192, 215, 1)",
+          "rgba(217, 158, 43, 1)",
+          "rgba(205, 58, 129, 1)",
+          "rgba(156, 153, 204, 1)",
+          "rgba(225, 78, 202, 1)",
+          "rgba(116, 72, 194, 1)",
+          "rgba(33, 192, 215, 1)",
+          "rgba(217, 158, 43, 1)",
+          "rgba(205, 58, 129, 1)",
+          "rgba(156, 153, 204, 1)",
+          "rgba(225, 78, 202, 1)",
+        ],
+        backgroundColor: [
+          "rgba(116, 72, 194, .2)",
+          "rgba(33, 192, 215, .2)",
+          "rgba(217, 158, 43, .2)",
+          "rgba(205, 58, 129, .2)",
+          "rgba(156, 153, 204, .2)",
+          "rgba(225, 78, 202, .2)",
+          "rgba(116, 72, 194, .2)",
+          "rgba(33, 192, 215, .2)",
+          "rgba(217, 158, 43, .2)",
+          "rgba(205, 58, 129, .2)",
+          "rgba(156, 153, 204, .2)",
+          "rgba(225, 78, 202, .2)",
+          "rgba(116, 72, 194, .2)",
+          "rgba(33, 192, 215, .2)",
+          "rgba(217, 158, 43, .2)",
+          "rgba(205, 58, 129, .2)",
+          "rgba(156, 153, 204, .2)",
+          "rgba(225, 78, 202, .2)",
+          "rgba(116, 72, 194, .2)",
+          "rgba(33, 192, 215, .2)",
+          "rgba(217, 158, 43, .2)",
+          "rgba(205, 58, 129, .2)",
+          "rgba(156, 153, 204, .2)",
+          "rgba(225, 78, 202, .2)",
+          "rgba(116, 72, 194, .2)",
+          "rgba(33, 192, 215, .2)",
+          "rgba(217, 158, 43, .2)",
+          "rgba(205, 58, 129, .2)",
+          "rgba(156, 153, 204, .2)",
+          "rgba(225, 78, 202, .2)",
+          "rgba(116, 72, 194, .2)",
+          "rgba(33, 192, 215, .2)",
+          "rgba(217, 158, 43, .2)",
+          "rgba(205, 58, 129, .2)",
+          "rgba(156, 153, 204, .2)",
+          "rgba(225, 78, 202, .2)",
+        ],
+      },
+    ],
+  };
+
+  const options = {
+    legend: {
+      display: false,
+    },
+    scales: {
+      yAxes: [
+        {
+          gridLines: {
+            display: false,
+          },
+          ticks: {
+            display: true,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          ticks: {
+            display: true,
+          },
+        },
+      ],
+    },
+  };
+
+  new Chart(id, { type: "bar", data, options });
+};
+
+const printCharts = (games) => {
+  gameBarsChart(games, "chart5");
+};
+
 const showFinalScore = (globalScore) => {
   modalTittle.innerText = "";
-  modal.innerText = `Felicidades tu Puntuacion es ${score}, volver a Jugar?`;
+  //  modal.innerText = `Felicidades tu Puntuacion es ${score}, volver a Jugar?`;
+  // $("#myModal").modal("show");
+  modal.innerHTML = `<p>Felicidades tu Puntuacion es ${score}, volver a Jugar?</p>
+  <figure>
+  <h3>Resultados Totales</h3>
+  <canvas id="chart5"></canvas>
+</figure>`;
   $("#myModal").modal("show");
+
   startGame();
+  printCharts(globalScore);
 };
 
 startButton.addEventListener("click", startGame);

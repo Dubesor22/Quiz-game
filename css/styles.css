@@ -23,8 +23,9 @@ h2 {
   background-color: var(--background-secondary);
   color: aliceblue;
 }
-h5 {
+h1 {
   color: black;
+  font-size: 3rem;
 }
 
 /* clase para ocultar */
@@ -32,12 +33,14 @@ h5 {
 .hide {
   display: none;
 }
+
 .modal {
   background-color: var(--background-primary);
 }
 
 .modal-body {
   color: black;
+  font-size: 2rem;
 }
 
 .modal-footer {
@@ -113,11 +116,12 @@ h5 {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+  height: 5rem;
 }
 
 .btn {
-  width: 35%;
-  height: 5rem;
+  width: 50%;
+  height: 100%;
   font-size: 1.5rem;
   background-color: rgb(var(--button), 0.6) !important;
 
@@ -125,7 +129,7 @@ h5 {
 }
 
 .btn:hover {
-  box-shadow: 9px 7px 30px 11px rgba(203, 153, 126, 0.44);
+  box-shadow: 9px 7px 30px 11px rgba(0, 191, 255, 0.44);
 }
 
 .correct {

@@ -30,7 +30,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
       rel="stylesheet"
     />
-    <!-- <link rel="stylesheet" href="./css/bootstrap.min.css" /> -->
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+    ></script>
+
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
@@ -48,9 +52,9 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-center">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">
-              Bienvenido a, Quieres Ser Un tirado???
-            </h5>
+            <h1 class="modal-title" id="exampleModalLabel">
+              Bienvenido al 8-Bit Quiz!!
+            </h1>
             <button
               type="button"
               class="btn-close"
@@ -59,8 +63,7 @@
             ></button>
           </div>
           <div class="modal-body">
-            Quieres Ganar 0 Euros pero pasartelo muy bien mientras te desvalijan
-            la casa??? este es tu Programa huevon!!
+            Un Quiz Retro para Boomers y Milenials nostalgicos.
           </div>
           <div class="modal-footer text-center">
             <button
@@ -130,7 +133,11 @@
       </div>
     </div>
     <!-- End your project here-->
-
+    <audio autoplay class="audio">
+      <source class="audio" src="/assets/sound/theme.wav" type="audio/wav" />
+      <source src="theme.wav" type="audio/wav" />
+      Your browser does not support the audio element.
+    </audio>
     <!-- MDB -->
     <script
       type="text/javascript"
