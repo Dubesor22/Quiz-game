@@ -26,7 +26,7 @@ let avaliableQuestions = [];
 const getQuestions = async () => {
   try {
     const res = await axios.get(
-      "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple"
+      "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple"
     );
     return res.data.results;
   } catch (e) {
