@@ -32,6 +32,11 @@ h1 {
   font-size: 3rem;
 }
 
+@media (max-height: 700px) {
+  body {
+    overflow: auto;
+  }
+}
 /* clase para ocultar */
 
 .hide {
