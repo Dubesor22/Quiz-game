@@ -15,7 +15,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "Press Start 2P", cursive;
-  overflow: hidden;
+  overflow: auto;
   color: white;
   background-color: black;
 }
@@ -31,11 +31,12 @@ h1 {
   font-size: 3rem;
 }
 
-@media (max-height: 700px) {
+/* @media (max-height: 700px) {
   body {
     overflow: auto;
+    height: 100vh;
   }
-}
+} */
 /* clase para ocultar */
 
 .hide {
