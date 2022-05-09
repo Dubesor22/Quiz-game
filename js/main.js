@@ -18,11 +18,19 @@ let acceptingAnswers = true;
 let score = 0;
 let userAnswers = [];
 
-const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 10;
 let avaliableQuestions = [];
 
 const getQuestions = async () => {
+  // try {
+  //   const res = await axios.get(
+  //     "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple"
+  //   );
+  //   res = res.results;
+  //   return res;
+  // } catch (e) {
+  //   console.error(e);
+  // }
+
   return fetch(
     "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple"
   )
