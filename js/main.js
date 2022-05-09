@@ -14,6 +14,7 @@ const scoreText = document.querySelector("#score");
 const startButton = document.querySelector(".start-button");
 const modalTittle = document.querySelector(".modal-title");
 const modal = document.querySelector(".modal-body");
+const modalFooter = document.querySelector(".modal-footer");
 const buttonNext = document.querySelector("#btn-next");
 
 let acceptingAnswers = true;
@@ -23,21 +24,14 @@ let userAnswers = [];
 let avaliableQuestions = [];
 
 const getQuestions = async () => {
-  // try {
-  //   const res = await axios.get(
-  //     "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple"
-  //   );
-  //   res = res.results;
-  //   return res;
-  // } catch (e) {
-  //   console.error(e);
-  // }
-
-  return fetch(
-    "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple"
-  )
-    .then((res) => res.json())
-    .then((res) => res.results);
+  try {
+    const res = await axios.get(
+      "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple"
+    );
+    return res.data.results;
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 //Funcion para empezar el Juego
@@ -117,7 +111,7 @@ const gameBarsChart = (games, id) => {
   const selectedGame = games.filter((eachGame) => eachGame.game !== null);
 
   const data = {
-    labels: selectedGame.map((eachGame, index) => index),
+    labels: selectedGame.map((eachGame, index) => index + 1),
     datasets: [
       {
         data: selectedGame,
@@ -213,9 +207,11 @@ const gameBarsChart = (games, id) => {
           },
           ticks: {
             display: true,
+            stepSize: 1,
           },
         },
       ],
+
       xAxes: [
         {
           ticks: {
@@ -235,15 +231,35 @@ const printCharts = (games) => {
 
 const showFinalScore = (globalScore) => {
   modalTittle.innerText = "";
-  //  modal.innerText = `Felicidades tu Puntuacion es ${score}, volver a Jugar?`;
-  // $("#myModal").modal("show");
-  modal.innerHTML = `<p>Felicidades tu Puntuacion es ${score}, volver a Jugar?</p>
+
+  const rub = () => {
+    console.log("hola que pae loco");
+    localStorage.clear();
+    console.clear();
+  };
+
+  modal.innerHTML = `<p>Felicidades tu Puntuacion es ${score}, volver a Jugar?</p></br>
   <figure>
   <h3>Resultados Totales</h3>
   <canvas id="chart5"></canvas>
 </figure>`;
+  modalFooter.innerHTML = `<button
+  type="button"
+  class="btn-final btn btn-secondary start-button"
+  data-mdb-dismiss="modal"
+>
+  REINICIAR
+</button>
+<button
+              type="button"
+              class="btn-final btn btn-secondary delete-button"
+              data-mdb-dismiss="modal" onclick="rub"
+            >
+              BORRAR PARTIDAS
+            </button>`;
   $("#myModal").modal("show");
-
+  const deleteButton = document.querySelector(".delete-button");
+  deleteButton.addEventListener("click", rub);
   startGame();
   printCharts(globalScore);
 };

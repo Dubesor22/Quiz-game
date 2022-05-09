@@ -44,7 +44,10 @@ h1 {
 }
 
 .modal-footer {
-  display: inline-block;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
 }
 
 #intro {
@@ -124,8 +127,11 @@ h1 {
   height: 100%;
   font-size: 1.5rem;
   background-color: rgb(var(--button), 0.6) !important;
-
   font-weight: 600;
+}
+
+.btn-final {
+  height: 8vh;
 }
 
 .btn:hover {
