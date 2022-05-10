@@ -5,12 +5,14 @@ In this exercise we have worked in pairs trying to dominate the Github.
 Other challenges to overcome have been to implement APIs for the data and develop all the knowledge learned so far in class.
 
 ### Authors
-[David Ubeda] (https://github.com/Dubesor22)  & [Imanol Fuertes] (https://github.com/Imi21)
+[David Ubeda (https://github.com/Dubesor22)]  & [Imanol Fuertes (https://github.com/Imi21)]
 
 ### Technologies used
 * HTML5 (only one file)
+* CSS
 * [MDB for Bootstrap 5](https://mdbootstrap.com/)
 * JavaScript (SPA)
+* ECMAScript6
 
 ### Challenge
 Code a funcional quiz:
@@ -30,17 +32,17 @@ A GIF as background for the game
 ### Question
 Answer buttons with noted error and correct answer
 
-![Question image](./assets/img/Captura.JPG)
+![Question image](./assets/img/preguntass.PNG)
 
 ### Main Menu
 Main menu to start game
 
-![Answer Image](./doc/answer.png)
+![Answer Image](./assets/img/start%20game.JPG)
 
 ### Graphic results
 
 
-![Results Image](./)
+![Results Image](./assets/img/Stats.JPG)
 
 ## TODO lists
 
@@ -54,7 +56,7 @@ Main menu to start game
 - [x] Stats chart in home
 
 ### JS
-- [x] Fetch data from API
+- [x] Async Await from API
 - [x] Quiz functionality (questions, answers, next/back navigation)
 - [x] Count right/wrong points
 - [x] Show result points
