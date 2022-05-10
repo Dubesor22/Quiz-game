@@ -14,6 +14,14 @@ Other challenges to overcome have been to implement APIs for the data and develo
 * JavaScript (SPA)
 * ECMAScript6
 
+### Skills Achived
+
+* Mastering responsive
+* Mastering Bootstrap
+* Skills in css3
+* Practicing charts
+* Load resources from api
+
 ### Challenge
 Code a funcional quiz:
 * With 10 questions
