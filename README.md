@@ -1,11 +1,11 @@
-# QUIZ RETRO-16-BIT 
+# QUIZ RETRO-8-BIT 
 
 ## Description
 In this exercise we have worked in pairs trying to dominate the Github.
 Other challenges to overcome have been to implement APIs for the data and develop all the knowledge learned so far in class.
 
 ### Authors
-[David Ubeda (https://github.com/Dubesor22)]  & [Imanol Fuertes (https://github.com/Imi21)]
+[David Ubeda](https://github.com/Dubesor22)  & [Imanol Fuertes](https://github.com/Imi21)
 
 ### Technologies used
 * HTML5 (only one file)
@@ -46,6 +46,11 @@ Main menu to start game
 
 ## TODO lists
 
+* 10 questions Exercise 
+* Modal or insert at beggining with a Start Button.
+* Finish Screen with a chart with some stadistics.
+
+
 ### HTML, CSS
 - [x] Structure of html minimal elements
 - [x] Add navBar
@@ -66,5 +71,4 @@ Main menu to start game
 - [x] Show points in stats block
 - [x] Progress bar
 - [x] Toast
-- [x] Spinner
 - [x] Put data in chart
