@@ -1,20 +1,20 @@
-# QUIZ RETRO-8-BIT 
+# QUIZ RETRO-8-BIT 🕹
 
-## Description
+## Description 🤨
 In this exercise we have worked in pairs trying to dominate the Github.
 Other challenges to overcome have been to implement APIs for the data and develop all the knowledge learned so far in class.
 
-### Authors
+### Authors 🤓
 [David Ubeda](https://github.com/Dubesor22)  & [Imanol Fuertes](https://github.com/Imi21)
 
-### Technologies used
+### Technologies used 👩‍💻
 * HTML5 (only one file)
 * CSS
 * [MDB for Bootstrap 5](https://mdbootstrap.com/)
 * JavaScript (SPA)
 * ECMAScript6
 
-### Skills Achived
+### Skills Achived 👨‍🎓
 
 * Mastering responsive
 * Mastering Bootstrap
@@ -22,7 +22,7 @@ Other challenges to overcome have been to implement APIs for the data and develo
 * Practicing charts
 * Load resources from api
 
-### Challenge
+### Challenge  🎢
 Code a funcional quiz:
 * With 10 questions
 * Each question with 4 possible answers
@@ -30,14 +30,14 @@ Code a funcional quiz:
 * Fetching questions from an API
 * Storing results in localStorage
 
-## Screenshots
+## Screenshots 📺
 
-### GIF
+### GIF 
 A GIF as background for the game
 
 ![GIF](./assets/img/fondo.gif.gif)
 
-### Question
+### Question 
 Answer buttons with noted error and correct answer
 
 ![Question image](./assets/img/preguntass.PNG)
@@ -52,7 +52,7 @@ Main menu to start game
 
 ![Results Image](./assets/img/Stats.JPG)
 
-## TODO lists
+## TODO lists ✔
 
 * 10 questions Exercise 
 * Modal or insert at beggining with a Start Button.
@@ -80,3 +80,10 @@ Main menu to start game
 - [x] Progress bar
 - [x] Toast
 - [x] Put data in chart
+
+### WEBGRAPHY 💻
+
+* Bootrstap Documentation
+* MDB Documentation
+* W3Schools
+* StackOverflow
