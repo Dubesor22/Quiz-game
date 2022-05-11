@@ -2,7 +2,9 @@ $(document).ready(function () {
   $("#myModal").modal("show");
 });
 
-//Variable Declaration Y DOM
+///////////////////////////////////////////////
+//Variable Declaration Y DOM//
+//////////////////////////////////////////////////
 
 const questionContainer = document.querySelector("#question");
 const answersContainer = Array.from(
@@ -23,6 +25,9 @@ let userAnswers = [];
 
 let avaliableQuestions = [];
 
+///////////////////////////////////////////////
+//LLAMADA A LA API/////
+//////////////////////////////////////////////
 const getQuestions = async () => {
   try {
     const res = await axios.get(
@@ -34,7 +39,10 @@ const getQuestions = async () => {
   }
 };
 
+///////////////////////////////////////////////
 //Funcion para empezar el Juego
+/////////////////////////////////////////////////
+
 const startGame = async () => {
   score = 0;
   userAnswers = [];
@@ -52,13 +60,20 @@ const startGame = async () => {
   };
 };
 
+////////////////////////////////////////////////////////
 //funcion guardar en local storage
+///////////////////////////////////////////////////
+
 const endGame = () => {
   const globalScore = JSON.parse(localStorage.getItem("globalScore")) || [];
   globalScore.push(score);
   localStorage.setItem("globalScore", JSON.stringify(globalScore));
   showFinalScore(globalScore);
 };
+
+/////////////////////////////////////////////////
+//Validar Respuestas///////////
+//////////////////////////////////////////
 
 const validateAnswer = (question, answer) => {
   if (answer === question.correct_answer) {
@@ -68,11 +83,18 @@ const validateAnswer = (question, answer) => {
   return false;
 };
 
+//////////////////////////////////////////////////
+//Borrar Colores////////////////////////////////
+/////////////////////////////////////////////////
 const removeColors = () => {
   answersContainer.forEach((eachContainer) =>
     eachContainer.classList.remove("correct", "incorrect")
   );
 };
+
+//////////////////////////////////////////////////
+// Pintar Preguntas en el UI/////
+///////////////////////////////////////////////////
 
 const printQuestion = (q) => {
   removeColors();
@@ -102,10 +124,18 @@ const printQuestion = (q) => {
   });
 };
 
+//////////////////////////////////////////////////////////
+//Actualizar Puntuaciones///////////////
+/////////////////////////////////////////////////////////
+
 const updateScore = () => {
   scoreText.innerText = score;
   questionCounterText.innerText = userAnswers.length + 1;
 };
+
+///////////////////////////////////////////////////////
+//GRAFICA//////////////////
+////////////////////////////////////////////////////////
 
 const gameBarsChart = (games, id) => {
   const selectedGame = games.filter((eachGame) => eachGame.game !== null);
@@ -270,5 +300,9 @@ const showFinalScore = (globalScore) => {
   startGame();
   printCharts(globalScore);
 };
+
+//////////////////////////////////////////////////
+//CON ESTE LISTENER EMPEIZA TODO//////////
+/////////////////////////////////////////////////
 
 startButton.addEventListener("click", startGame);
